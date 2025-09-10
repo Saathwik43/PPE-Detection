@@ -22,8 +22,14 @@ Real-time Personal Protective Equipment (PPE) detection using YOLOv8 for workpla
 pip install -r requirements.txt
 ```
 
-2. **Add PPE model**
-Place your trained PPE model (`ppe.pt`) in this directory
+2. **Download PPE model**
+```bash
+# Download the pre-trained PPE detection model
+wget https://github.com/ultralytics/assets/releases/download/v0.0.0/ppe.pt
+```
+Or download manually: [ppe.pt model file](https://github.com/ultralytics/assets/releases/download/v0.0.0/ppe.pt)
+
+Place the downloaded `ppe.pt` file in this directory
 
 ## Usage
 
@@ -33,7 +39,7 @@ python YoloWebCam.py
 ```
 
 ### Video File Detection
-Edit the video path in `YoloWebCam.py`:
+Edit the video path in `main.py`:
 ```python
 cap = cv2.VideoCapture('../Videos/ppe1.mp4')
 ```
