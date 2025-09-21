@@ -63,7 +63,7 @@ cap = cv2.VideoCapture(0)
 ### Running with Video File
 ```python
 # Modify main.py - Specify video file path
-cap = cv2.VideoCapture('../Videos/your_video.mp4')
+cap = cv2.VideoCapture('Samples/your_video.mp4')
 ```
 
 ### Execute the Program
