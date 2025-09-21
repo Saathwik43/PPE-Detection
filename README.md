@@ -1,87 +1,124 @@
-# PPE Detection System
+# Real-time PPE Detection System
 
-Real-time Personal Protective Equipment (PPE) detection using YOLOv8 for workplace safety monitoring.
+Advanced Personal Protective Equipment (PPE) detection system using YOLOv8 and OpenCV for workplace safety monitoring and compliance.
 
-## Features
+## 🚀 Features
 
-- **Real-time PPE Detection** - Hardhat, Mask, Safety Vest detection
-- **Safety Violation Detection** - Identifies missing PPE items
-- **Color-coded Alerts** - Green for compliance, Red for violations
-- **Webcam & Video Support** - Works with live camera or video files
-- **Custom Model Support** - Uses trained PPE detection model
+- **Real-time Detection** 
+  - Multiple PPE items tracking
+  - Support for both webcam and video files
+  - High-performance processing
+- **Smart Alerts**
+  - Color-coded detection boxes
+  - Confidence score display
+  - Multi-class detection
+- **Flexible Input**
+  - Webcam support
+  - Video file processing
+  - Adjustable confidence thresholds
 
-## Detected Classes
+## 🎯 Detection Classes
 
-- ✅ **Compliant**: Hardhat, Mask, Safety Vest, Person, Safety Cone, Machinery, Vehicle
-- ❌ **Violations**: NO-Hardhat, NO-Mask, NO-Safety Vest
+### Safety Equipment
+- ✅ Hardhat
+- ✅ Safety Vest
+- ✅ Mask
 
-## Installation
+### Safety Violations
+- ⚠️ NO-Hardhat
+- ⚠️ NO-Safety Vest
+- ⚠️ NO-Mask
 
-1. **Install dependencies**
+### Additional Objects
+- 👥 Person
+- 🔺 Safety Cone
+- 🏗️ Machinery
+- 🚗 Vehicle
+
+## 🛠️ Installation
+
+1. **Clone the repository**
 ```bash
-pip install -r requirements.txt
+git clone https://github.com/your-username/ppe-detection.git
+cd ppe-detection
 ```
 
-2. **Download PPE model**
+2. **Install dependencies**
 ```bash
-# Download the pre-trained PPE detection model
-wget https://github.com/ultralytics/assets/releases/download/v0.0.0/ppe.pt
-```
-Or download manually: [ppe.pt model file](https://github.com/ultralytics/assets/releases/download/v0.0.0/ppe.pt)
-
-Place the downloaded `ppe.pt` file in this directory
-
-## Usage
-
-### Webcam Detection
-```bash
-python YoloWebCam.py
+pip install ultralytics opencv-python cvzone
 ```
 
-### Video File Detection
-Edit the video path in `main.py`:
+3. **Download model**
+- Download the `ppe.pt` model file
+- Place it in the project root directory
+
+## 💻 Usage
+
+### Running with Webcam
 ```python
-cap = cv2.VideoCapture('../Videos/ppe1.mp4')
+# Modify main.py - Change video source to webcam
+cap = cv2.VideoCapture(0)
 ```
 
-## Configuration
+### Running with Video File
+```python
+# Modify main.py - Specify video file path
+cap = cv2.VideoCapture('../Videos/your_video.mp4')
+```
 
-### Model Selection
-- Replace `ppe.pt` with your custom PPE model
-- Update `classNames` list to match your model's classes
+### Execute the Program
+```bash
+python main.py
+```
 
-### Detection Sensitivity
-- Adjust confidence threshold in the model call
-- Modify box colors in `myColor` variables
+## ⚙️ Configuration
 
-## Controls
+```python
+# Adjust detection confidence (in main.py)
+if conf > 0.5:  # Change 0.5 to desired threshold
 
-- **Any key** - Continue processing
-- **Close window** - Exit application
+# Color codes
+- Green (0, 255, 0): Compliant PPE
+- Red (0, 0, 255): Safety violations
+- Blue (255, 0, 0): Other objects
+```
 
-## Color Coding
+## 🎮 Controls
 
-- 🟢 **Green boxes** - PPE compliance detected
-- 🔴 **Red boxes** - Safety violations (missing PPE)
+- **Q key**: Exit program
+- **Any other key**: Continue processing
 
-## Requirements
+## 🎨 Visual Indicators
+
+- 🟢 **Green Box**: Detected proper PPE
+- 🔴 **Red Box**: Safety violation detected
+- 🔵 **Blue Box**: Other detected objects
+- 📊 **Confidence Score**: Shown for each detection
+
+## 🔧 System Requirements
 
 - Python 3.8+
-- OpenCV
-- Ultralytics YOLO
-- CVZone
-- Custom PPE model file
+- GPU recommended for optimal performance
+- Webcam (for live detection)
+- Required packages:
+  - ultralytics
+  - opencv-python
+  - cvzone
 
-## Model Training
+## 🔍 Performance Optimization
 
-To train your own PPE detection model:
-1. Collect and label PPE images
-2. Use Ultralytics YOLO training pipeline
-3. Replace `ppe.pt` with your trained model
-4. Update `classNames` list accordingly
+- Use GPU acceleration when available
+- Adjust confidence threshold (default: 0.5)
+- Optimize video resolution for real-time processing
 
-## Performance Tips
+## 📝 License
 
-- Use GPU acceleration for better performance
-- Reduce video resolution for real-time processing
-- Adjust confidence threshold based on accuracy needs
+MIT License - see LICENSE file for details
+
+## 🤝 Contributing
+
+Feel free to submit issues and enhancement requests!
+
+---
+
+*Last updated: December 2024*
