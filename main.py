@@ -5,7 +5,7 @@ import math
 
 
 #cap=cv2.VideoCapture(0) #Use 0 for webcam or replace with video path
-cap=cv2.VideoCapture('../Videos/ppe2.mp4')
+cap=cv2.VideoCapture('Samples/ppe1.mp4')
 model=YOLO('ppe.pt')
 classNames=['Hardhat', 'Mask', 'NO-Hardhat', 'NO-Mask', 'NO-Safety Vest', 'Person', 'Safety Cone',
               'Safety Vest', 'machinery', 'vehicle']
@@ -13,6 +13,8 @@ classNames=['Hardhat', 'Mask', 'NO-Hardhat', 'NO-Mask', 'NO-Safety Vest', 'Perso
 myColor=(0,255,0)
 while True:
     success,img=cap.read()
+    if not success:
+        break
     results=model(img,stream=True)
 
     for r in results:
@@ -37,5 +39,9 @@ while True:
             cvzone.cornerRect(img,(x1,y1,w,h),t=3,rt=2,l=15,colorR=myColor,colorC=myColor) #Bounding box
             cvzone.putTextRect(img,f'{classNames[cls]} {conf}',(max(0,x1),max(35,y1-10)),scale=1.4,thickness=1,offset=3,colorB=myColor,colorT=(255,255,255))
 
-    cv2.imshow("Image",img)
-    cv2.waitKey(1)
+    cv2.imshow("PPE Detection", img)
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
+
+cap.release()
+cv2.destroyAllWindows()
