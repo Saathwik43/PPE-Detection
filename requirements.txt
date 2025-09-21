@@ -3,6 +3,7 @@
 # Core ML/CV packages
 ultralytics>=8.0.200
 opencv-python>=4.8.0
+# Note: Use opencv-python (not opencv-python-headless) for GUI support
 numpy>=1.21.0
 torch>=1.11.0
 torchvision>=0.12.0
