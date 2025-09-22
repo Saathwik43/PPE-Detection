@@ -111,9 +111,6 @@ if conf > 0.5:  # Change 0.5 to desired threshold
 - Adjust confidence threshold (default: 0.5)
 - Optimize video resolution for real-time processing
 
-## 📝 License
-
-MIT License - see LICENSE file for details
 
 ## 🤝 Contributing
 
