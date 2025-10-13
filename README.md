@@ -118,4 +118,4 @@ Feel free to submit issues and enhancement requests!
 
 ---
 
-*Last updated: December 2024*
+*Last updated: September 2025*
