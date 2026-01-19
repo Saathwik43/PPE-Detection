@@ -39,7 +39,7 @@ Advanced Personal Protective Equipment (PPE) detection system using YOLOv8 and O
 
 1. **Clone the repository**
 ```bash
-git clone https://github.com/your-username/ppe-detection.git
+git clone https://github.com/Saathwik43/ppe-detection.git
 cd ppe-detection
 ```
 
